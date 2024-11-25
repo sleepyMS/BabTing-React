@@ -4,18 +4,35 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import GlobalStyles from "./GlobalStyles";
 import MeetingManagement from "./pages/MeetingManagement";
+import UnivCertForm from "./pages/UnivCertForm";
+import MeetupMap from "./pages/MeetupMap";
+import { events, currentPosition} from "./data/MeetupMapData";
+import ApiTester from "./pages/ApiTester";
 import TeamCreation from "./pages/TeamCreation";
 import ChatRoom from "./pages/ChatRoom";
 
 function App() {
+  
+function App() {
+  const handleSuccess = () => {
+    alert("인증 성공!");
+  };
+  
   return (
     <div className="App">
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
+          
+        <Route path="/test/api" element={<ApiTester/>} />
+        {/* ===TEST==== */}
+
+        
+          <Route path="/univform" element={<UnivCertForm onSuccess={handleSuccess} />} />
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/*" element={<SignUp />} />
           <Route path="/meeting/*" element={<MeetingManagement />} />
+          <Route path="/meetupmap" element={<MeetupMap events={events} currentPosition={currentPosition} />} />
           <Route path="/TeamCreation" element={<TeamCreation />} />
           <Route path="/chatroom" element={<ChatRoom />} />
           {/* <Route path="/search/detail/*" element={<SearchDetail />} />
