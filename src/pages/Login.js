@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 // 메인 Login 컴포넌트
 const Login = () => {
@@ -7,18 +7,22 @@ const Login = () => {
 
   // 모바일/이메일 탭 전환 함수
   const toggleTab = (tab) => {
-    setIsMobile(tab === 'mobile');
+    setIsMobile(tab === "mobile");
   };
 
   return (
     <Container>
       <TabContainer>
-        <Tab active={isMobile} onClick={() => toggleTab('mobile')}>Mobile</Tab>
-        <Tab active={!isMobile} onClick={() => toggleTab('email')}>Email</Tab>
+        <Tab active={isMobile} onClick={() => toggleTab("mobile")}>
+          Mobile
+        </Tab>
+        <Tab active={!isMobile} onClick={() => toggleTab("email")}>
+          Email
+        </Tab>
       </TabContainer>
-      
+
       <InputContainer>
-        <Input placeholder={isMobile ? 'Mobile number' : 'Email'} />
+        <Input placeholder={isMobile ? "Mobile number" : "Email"} />
         {isMobile && (
           <VerificationContainer>
             <VerificationInput placeholder="Verification code" />
@@ -26,7 +30,7 @@ const Login = () => {
           </VerificationContainer>
         )}
       </InputContainer>
-      
+
       <LoginButton>Login</LoginButton>
 
       <Footer>
@@ -41,8 +45,14 @@ const Login = () => {
       </Divider>
 
       <SocialLoginContainer>
-        <SocialIcon src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Kakao_logo.jpg?20171226171735" alt="Kakao" />
-        <SocialIcon src="https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c1/20170301123009%21Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="google" />
+        <SocialIcon
+          src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Kakao_logo.jpg?20171226171735"
+          alt="Kakao"
+        />
+        <SocialIcon
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c1/20170301123009%21Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png"
+          alt="google"
+        />
       </SocialLoginContainer>
     </Container>
   );
@@ -70,8 +80,8 @@ const TabContainer = styled.div`
 const Tab = styled.button`
   flex: 1;
   padding: 10px 0;
-  background-color: ${(props) => (props.active ? '#3b82f6' : '#e0e7ff')};
-  color: ${(props) => (props.active ? '#fff' : '#3b82f6')};
+  background-color: ${(props) => (props.active ? "#3b82f6" : "#e0e7ff")};
+  color: ${(props) => (props.active ? "#fff" : "#3b82f6")};
   border: none;
   border-radius: 8px 8px 0 0;
   font-size: 16px;
@@ -126,7 +136,6 @@ const LoginButton = styled.button`
   margin-bottom: 30px;
 `;
 
-
 const Footer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -176,4 +185,3 @@ const SocialIcon = styled.img`
   padding: 5px;
   cursor: pointer;
 `;
-
