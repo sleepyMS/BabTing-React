@@ -14,7 +14,7 @@ const ChatRoom = () => {
         <CardContent>
           <TopRow>
             <Organizer>먹보돼지</Organizer>
-            <Status>진행완료</Status>
+            <Status>진행중</Status>
           </TopRow>
           <TitleText>{formData?.activity} 함께 하실 분!</TitleText>
           <Details>
