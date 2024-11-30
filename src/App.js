@@ -10,6 +10,8 @@ import { events, currentPosition } from "./data/MeetupMapData";
 import ApiTester from "./pages/ApiTester";
 import TeamCreation from "./pages/TeamCreation";
 import ChatRoom from "./pages/ChatRoom";
+import EditTimeTablePage from "./pages/EditTimeTablePage";
+import TimeTablePage from "./pages/TimeTablePage";
 import CommunityMain from "./pages/community/CommunityMain";
 import Reviews from "./pages/community/Reviews";
 import Board from "./pages/community/Board";
@@ -34,6 +36,10 @@ function App() {
           />
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/*" element={<SignUp />} />
+          
+          <Route path="/user/timetable" element={<TimeTablePage />} />
+          <Route path="/user/timetable/edit" element={<EditTimeTablePage />} />
+
           <Route path="/meeting/*" element={<MeetingManagement />} />
           <Route
             path="/meetupmap"
