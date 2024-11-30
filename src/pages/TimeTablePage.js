@@ -9,13 +9,13 @@ import SemesterTabs from "../components/SemesterTabs";
  * @param {Array} props.events - 각 시간대별로 표시될 이벤트 목록
  * @returns {JSX.Element} Calendar 컴포넌트
  */
-const TimeTablePage = ({ events }) => {
+const TimeTablePage = () => {
+  let user = JSON.parse(localStorage.getItem("user"));
   
-
   return (<>
   
   <SemesterTabs />
-  <TimeTable events={events}/>
+  <TimeTable events={user.timetable}/>
   </>
     
   );

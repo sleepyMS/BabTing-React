@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import SemesterTabs from "./SemesterTabs";
+import BottomSheet from "./BottomSheet";
 
 /**
  * Calendar 컴포넌트 - 주간 캘린더 UI
  * @param {Object} props - Calendar 컴포넌트에 전달되는 props
  * @param {Array} props.events - 각 시간대별로 표시될 이벤트 목록
+ * @param {string} [props.type="normal"] - 캘린더 타입 (예: "edit" 또는 "normal")
  * @returns {JSX.Element} Calendar 컴포넌트
  */
-const TimeTable = ({ events }) => {
+const TimeTable = ({ events: initialEvents, type = "normal", onDeleteEvent=null }) => {
+  const [events, setEvents] = useState(initialEvents);
+  const [isSheetOpen, setSheetOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null); // 클릭한 이벤트 정보
   const days = ["월요일", "화요일", "수요일", "목요일", "금요일"];
 
   // Helper 함수: 시간을 grid-row로 변환 (9:00부터 시작)
@@ -20,39 +24,80 @@ const TimeTable = ({ events }) => {
     return { start, end };
   };
 
-  return (<>
-  <CalendarContainer>
-      <Header>
-        {days.map((day, index) => (
-          <DayTab key={index}>{day}</DayTab>
-        ))}
-      </Header>
-      <Table>
-        <TimeColumn>
-          {Array.from({ length: 20 }, (_, i) => (
-            <TimeSlot key={i}>
-              {`${Math.floor(i / 2) + 9}:` + (i % 2 === 0 ? "00" : "30")}
-            </TimeSlot>
+  // 이벤트 클릭 핸들러
+  const handleEventClick = (event) => {
+    setSelectedEvent(event);
+    setSheetOpen(true);
+  };
+
+  // 이벤트 삭제 핸들러
+  const handleDeleteEvent = () => {
+    if(onDeleteEvent) onDeleteEvent(selectedEvent);
+    setEvents(events.filter((e) => e !== selectedEvent)); // 선택된 이벤트 삭제
+    setSelectedEvent(null); // 선택된 이벤트 초기화
+    setSheetOpen(false); // 바텀시트 닫기
+  };
+
+  return (
+    <>
+      <CalendarContainer>
+        <Header>
+          <DayTab style={{flex: .33}}/>
+          {days.map((day, index) => (
+            <DayTab key={index}>{day}</DayTab>
           ))}
-        </TimeColumn>
-        {days.map((day, index) => (
-          <DayColumn key={index}>
-            {events
-              .filter((event) => event.day === day)
-              .map((event, i) => {
-                const { start, end } = calculateGridPosition(event.time);
-                return (
-                  <Event key={i} style={{ gridRowStart: start, gridRowEnd: end }}>
-                    {event.subject}
-                  </Event>
-                );
-              })}
-          </DayColumn>
-        ))}
-      </Table>
-    </CalendarContainer>
-  </>
-    
+        </Header>
+        <Table>
+          <TimeColumn>
+            {Array.from({ length: 20 }, (_, i) => (
+              <TimeSlot key={i}>
+                {`${Math.floor(i / 2) + 9}:` + (i % 2 === 0 ? "00" : "30")}
+              </TimeSlot>
+            ))}
+          </TimeColumn>
+          {days.map((day, index) => (
+            <DayColumn key={index}>
+              {events
+                .filter((event) => event.day === day)
+                .map((event, i) => {
+                  const { start, end } = calculateGridPosition(event.time);
+                  return (
+                    <Event
+                      key={i}
+                      style={{ gridRowStart: start, gridRowEnd: end }}
+                      onClick={() => handleEventClick(event)}
+                    >
+                      {event.subject}
+                    </Event>
+                  );
+                })}
+            </DayColumn>
+          ))}
+        </Table>
+      </CalendarContainer>
+      <BottomSheet isOpen={isSheetOpen} onClose={() => setSheetOpen(false)}>
+        {selectedEvent ? (
+          <>
+            <h2>{selectedEvent.subject}</h2>
+            <p>
+              <strong>과목:</strong> {selectedEvent.subject}
+            </p>
+            <p>
+              <strong>요일:</strong> {selectedEvent.day}
+            </p>
+            <p>
+              <strong>시간:</strong> {selectedEvent.time}
+            </p>
+            {type === "edit" && (
+              <button onClick={handleDeleteEvent}>지우기</button>
+            )}
+          </>
+        ) : (
+          <p>선택된 이벤트가 없습니다.</p>
+        )}
+        <button onClick={() => setSheetOpen(false)}>닫기</button>
+      </BottomSheet>
+    </>
   );
 };
 

@@ -32,20 +32,8 @@ function App() {
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/*" element={<SignUp />} />
           
-          <Route path="/user/timetable" element={<TimeTablePage events={[
-            { day: "월요일", time: "10:00-12:00", subject: "자료구조" },
-            { day: "화요일", time: "14:00-16:00", subject: "운영체제" },
-            { day: "수요일", time: "09:00-10:00", subject: "컴퓨터 네트워크" },
-            { day: "목요일", time: "13:00-14:00", subject: "데이터베이스" },
-            { day: "금요일", time: "11:00-12:00", subject: "소프트웨어 공학" },
-          ]} />} />
-          <Route path="/user/timetable/edit" element={<EditTimeTablePage  events={[
-            { day: "월요일", time: "10:00-12:00", subject: "자료구조" },
-            { day: "화요일", time: "14:00-16:00", subject: "운영체제" },
-            { day: "수요일", time: "09:00-10:00", subject: "컴퓨터 네트워크" },
-            { day: "목요일", time: "13:00-14:00", subject: "데이터베이스" },
-            { day: "금요일", time: "11:00-12:00", subject: "소프트웨어 공학" },
-          ]}/>} />
+          <Route path="/user/timetable" element={<TimeTablePage />} />
+          <Route path="/user/timetable/edit" element={<EditTimeTablePage />} />
 
           <Route path="/meeting/*" element={<MeetingManagement />} />
           <Route path="/meetupmap" element={<MeetupMap events={events} currentPosition={currentPosition} />} />
