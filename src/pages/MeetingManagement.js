@@ -1,9 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import BottomNavigation from '../components/BottomNavigation';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import BottomNavigation from "../components/BottomNavigation";
+import { IoHomeOutline, IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { BiMap, BiUserCircle } from "react-icons/bi";
 
 // 메인 MeetingManagement 컴포넌트
 const MeetingManagement = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Header>모임 관리</Header>
@@ -17,7 +21,10 @@ const MeetingManagement = () => {
 
       <MeetingList>
         <MeetingItem>
-          <ProfileImage src="https://randomuser.me/api/portraits/men/1.jpg" alt="user" />
+          <ProfileImage
+            src="https://randomuser.me/api/portraits/men/1.jpg"
+            alt="user"
+          />
           <MeetingInfo>
             <MeetingTitle>점심 돈볼 모임</MeetingTitle>
             <LastMessage>Hey, how's everyone?</LastMessage>
@@ -29,7 +36,10 @@ const MeetingManagement = () => {
         </MeetingItem>
 
         <MeetingItem>
-          <ProfileImage src="https://randomuser.me/api/portraits/women/2.jpg" alt="user" />
+          <ProfileImage
+            src="https://randomuser.me/api/portraits/women/2.jpg"
+            alt="user"
+          />
           <MeetingInfo>
             <MeetingTitle>아침 국밥 모임</MeetingTitle>
             <LastMessage>I'm good, thanks for asking!</LastMessage>
@@ -41,7 +51,10 @@ const MeetingManagement = () => {
         </MeetingItem>
 
         <MeetingItem>
-          <ProfileImage src="https://randomuser.me/api/portraits/men/3.jpg" alt="user" />
+          <ProfileImage
+            src="https://randomuser.me/api/portraits/men/3.jpg"
+            alt="user"
+          />
           <MeetingInfo>
             <MeetingTitle>블랙탭 고양이 모임</MeetingTitle>
             <LastMessage>Just finished my work.</LastMessage>
@@ -52,14 +65,25 @@ const MeetingManagement = () => {
         </MeetingItem>
       </MeetingList>
 
-      <BottomNavigation
-        onHomeClick={() => console.log("홈 클릭")}
-        onMapClick={() => console.log("캠퍼스 지도 클릭")}
-        onAddClick={() => console.log("추가 버튼 클릭")}
-        onChatClick={() => console.log("채팅 클릭")}
-        onMyPageClick={() => console.log("마이페이지 클릭")}
-      />
-
+      {/* 네비게이션 바 */}
+      <NavBar>
+        <NavItem onClick={() => navigate("/community/main")}>
+          <IoHomeOutline size={20} />
+          <NavText>홈</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/meetupmap")}>
+          <BiMap size={20} />
+          <NavText>캠퍼스 지도</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/meeting")} active>
+          <IoChatbubbleEllipsesOutline size={20} />
+          <NavText>채팅</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/mypage")}>
+          <BiUserCircle size={20} />
+          <NavText>마이페이지</NavText>
+        </NavItem>
+      </NavBar>
     </Container>
   );
 };
@@ -94,8 +118,8 @@ const FilterContainer = styled.div`
 const FilterButton = styled.button`
   padding: 8px 12px;
   font-size: 14px;
-  color: ${(props) => (props.active ? '#ffffff' : '#3b82f6')};
-  background-color: ${(props) => (props.active ? '#3b82f6' : '#e0e7ff')};
+  color: ${(props) => (props.active ? "#ffffff" : "#3b82f6")};
+  background-color: ${(props) => (props.active ? "#3b82f6" : "#e0e7ff")};
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -158,22 +182,24 @@ const Badge = styled.div`
   justify-content: center;
 `;
 
-const BottomNav = styled.div`
+const NavBar = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 10px 0;
-  width: 100%;
-  border-top: 1px solid #e5e7eb;
   background-color: #ffffff;
-  position: fixed;
+  border-top: 1px solid #e5e7eb;
+  position: sticky;
   bottom: 0;
-  max-width: 600px; /* 최대 너비 */
-  margin: 0 auto; /* 가운데 정렬 */
 `;
 
 const NavItem = styled.div`
+  text-align: center;
+  color: ${(props) => (props.active ? "#4f46e5" : "#6b7280")};
   font-size: 12px;
-  color: ${(props) => (props.active ? '#3b82f6' : '#9ca3af')};
   cursor: pointer;
 `;
 
+const NavText = styled.div`
+  margin-top: 5px;
+`;
