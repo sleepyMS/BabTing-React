@@ -15,20 +15,20 @@ const MeetingManagement = () => {
 
         <FilterContainer>
           <FilterButton active>전체</FilterButton>
-          <FilterButton>맛밤 예정</FilterButton>
-          <FilterButton>맛밤 완료</FilterButton>
-          <FilterButton>내가 만든 맛밤</FilterButton>
+          <FilterButton>밥팅 예정</FilterButton>
+          <FilterButton>밥팅 완료</FilterButton>
+          <FilterButton>내가 만든 밥팅</FilterButton>
         </FilterContainer>
 
         <MeetingList>
-          <MeetingItem>
+          <MeetingItem onClick={() => navigate("/chatroom")}> 
             <ProfileImage
               src="https://randomuser.me/api/portraits/men/1.jpg"
               alt="user"
             />
             <MeetingInfo>
               <MeetingTitle>점심 돈볼 모임</MeetingTitle>
-              <LastMessage>Hey, how's everyone?</LastMessage>
+              <LastMessage>안녕하세요! 반갑습니다.</LastMessage>
             </MeetingInfo>
             <MeetingDetails>
               <Time>10:01 AM</Time>
@@ -36,7 +36,7 @@ const MeetingManagement = () => {
             </MeetingDetails>
           </MeetingItem>
 
-          <MeetingItem>
+          <MeetingItem  onClick={() => navigate("/chatroom")}>
             <ProfileImage
               src="https://randomuser.me/api/portraits/women/2.jpg"
               alt="user"
@@ -51,7 +51,7 @@ const MeetingManagement = () => {
             </MeetingDetails>
           </MeetingItem>
 
-          <MeetingItem>
+          <MeetingItem  onClick={() => navigate("/chatroom")}>
             <ProfileImage
               src="https://randomuser.me/api/portraits/men/3.jpg"
               alt="user"

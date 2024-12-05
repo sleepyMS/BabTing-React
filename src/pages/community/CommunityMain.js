@@ -64,11 +64,11 @@ const CommunityMain = () => {
     <Container>
       <Header>커뮤니티</Header>
 
-      {/* 맛남 게시판 섹션 */}
+      {/* 밥팅 게시판 섹션 */}
       <Section>
         <SectionHeader>
           <SectionTitle onClick={() => navigate("/community/meetings")}>
-            맛남 게시판
+            밥팅 게시판
           </SectionTitle>
           <div onClick={() => navigate("/community/meetings/magic")}>
             <Icon>★</Icon>

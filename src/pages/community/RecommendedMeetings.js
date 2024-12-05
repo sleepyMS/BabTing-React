@@ -9,8 +9,8 @@ import users from "../../data/users";
 const RecommendedMeetings = () => {
   const [userTimetable, setUserTimetable] = useState([]);
   const [recommendedMeetings, setRecommendedMeetings] = useState([]);
-  const [filterByInterest, setFilterByInterest] = useState(true);
-  const [filterByTime, setFilterByTime] = useState(true);
+  const [filterByInterest, setFilterByInterest] = useState(false);
+  const [filterByTime, setFilterByTime] = useState(false);
   const [sortOption, setSortOption] = useState("date"); // date or popularity
   const navigate = useNavigate();
 

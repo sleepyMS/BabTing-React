@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ChatRoom = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { formData } = location.state || {};
 
   return (
@@ -28,7 +29,7 @@ const ChatRoom = () => {
       {/* 채팅 메시지 영역 */}
       <ChatArea>
         <MessageLeft>
-          <Avatar />
+          <Avatar onClick={() => navigate("/mypage/info")}/>
           <TextBubble>안녕하세요!</TextBubble>
         </MessageLeft>
         <MessageRight>

@@ -111,12 +111,12 @@ const MyPageInfo = ({ setActiveSection }) => {
           </MenuItem>
         </MenuSection>
         <MenuSection>
-          <MenuTitle>나의 맛남</MenuTitle>
+          <MenuTitle>나의 밥팅</MenuTitle>
           <MenuItem onClick={() => setActiveSection("interests")}>
             관심목록
           </MenuItem>
           <MenuItem onClick={() => setActiveSection("history")}>
-            맛남내역
+            밥팅내역
           </MenuItem>
         </MenuSection>
         <MenuSection>

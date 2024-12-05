@@ -148,7 +148,7 @@ const MyPage = ({ activeSection }) => {
               borderRadius: "1px",
             }}
           />
-          <SectionTitle>맛남 성사</SectionTitle>
+          <SectionTitle>밥팅 성사</SectionTitle>
           <SectionItem onClick={() => setMeetingModalOpen(true)}>
             43번
           </SectionItem>
@@ -177,9 +177,9 @@ const MyPage = ({ activeSection }) => {
         <Modal
           isOpen={isMeetingModalOpen}
           onClose={() => setMeetingModalOpen(false)}
-          title="맛남 성사 상세보기"
+          title="밥팅 성사 상세보기"
         >
-          <p>맛남 성사 상세 내용</p>
+          <p>밥팅 성사 상세 내용</p>
         </Modal>
       </Container>
       {/* 네비게이션 바 */}
