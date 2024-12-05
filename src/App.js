@@ -19,6 +19,8 @@ import Board from "./pages/community/Board";
 import ReviewWrite from "./pages/community/ReviewWrite";
 import MyPageInfo from "./pages/MyPageInfo";
 import MyPage from "./pages/MyPage";
+import RecommendedMeetings from "./pages/community/RecommendedMeetings";
+import MeetingDetails from "./pages/community/MeetingDetails";
 
 function App() {
   const handleSuccess = () => {
@@ -54,6 +56,14 @@ function App() {
           <Route path="/chatroom" element={<ChatRoom />} />
           <Route path="/community/main" element={<CommunityMain />} />
           <Route path="/community/meetings" element={<MeetingBoard />} />
+          <Route
+            path="/community/meetings/:meetingId"
+            element={<MeetingDetails />}
+          />
+          <Route
+            path="/community/meetings/magic"
+            element={<RecommendedMeetings />}
+          />
           <Route path="/community/board" element={<Board />} />
           <Route path="/community/reviews" element={<Reviews />} />
           <Route path="/community/reviewWrite" element={<ReviewWrite />} />
