@@ -22,9 +22,10 @@ import MyPage from "./pages/MyPage";
 import RecommendedMeetings from "./pages/community/RecommendedMeetings";
 import MeetingDetails from "./pages/community/MeetingDetails";
 
-function App() {
+function App({history }) {
   const handleSuccess = () => {
-    alert("인증 성공!");
+    alert("회원가입 완료");
+    window.location.href = "/login";
   };
 
   return (
