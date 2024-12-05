@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../components/Modal";
 
@@ -72,6 +73,8 @@ const MyPage = ({ activeSection }) => {
   const [isBadgeModalOpen, setBadgeModalOpen] = useState(false);
   const [isMeetingModalOpen, setMeetingModalOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchMannerTemp = async () => {
       const response = await fetch("/api/manner-temperature"); // API 호출
@@ -121,6 +124,20 @@ const MyPage = ({ activeSection }) => {
         <SectionTitle>맛남 성사</SectionTitle>
         <SectionItem onClick={() => setMeetingModalOpen(true)}>
           43번
+        </SectionItem>
+      </Section>
+      <Section>
+        <div
+          style={{
+            width: "100%",
+            height: "2px",
+            background: "#ccc",
+            borderRadius: "1px",
+          }}
+        />
+        <SectionTitle>시간표</SectionTitle>
+        <SectionItem onClick={() => navigate("/user/timetable")}>
+          시간표 보기
         </SectionItem>
       </Section>
       <Modal
