@@ -96,7 +96,7 @@ const MyPageInfo = ({ setActiveSection }) => {
         <Profile>
           <ProfileImage />
           <ProfileName>먹보돼지</ProfileName>
-          <div style={{ width: "45%" }}></div>
+          <div style={{ width: "55%" }}></div>
           <div onClick={() => navigate("/mypage/info")}>
             <IoIosArrowForward size={20} color="#777" />
           </div>
