@@ -13,6 +13,7 @@ import ChatRoom from "./pages/ChatRoom";
 import EditTimeTablePage from "./pages/EditTimeTablePage";
 import TimeTablePage from "./pages/TimeTablePage";
 import CommunityMain from "./pages/community/CommunityMain";
+import MeetingBoard from "./pages/community/MeetingBoard";
 import Reviews from "./pages/community/Reviews";
 import Board from "./pages/community/Board";
 import ReviewWrite from "./pages/community/ReviewWrite";
@@ -52,6 +53,7 @@ function App() {
           <Route path="/team/creation" element={<TeamCreation />} />
           <Route path="/chatroom" element={<ChatRoom />} />
           <Route path="/community/main" element={<CommunityMain />} />
+          <Route path="/community/meetings" element={<MeetingBoard />} />
           <Route path="/community/board" element={<Board />} />
           <Route path="/community/reviews" element={<Reviews />} />
           <Route path="/community/reviewWrite" element={<ReviewWrite />} />

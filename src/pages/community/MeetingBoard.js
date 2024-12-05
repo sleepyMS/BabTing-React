@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { FaSearch, FaUserPlus, FaFilter } from "react-icons/fa";
+import { FaSearch, FaUserPlus, FaFilter, FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import users from "../../data/users";
 
@@ -54,10 +54,19 @@ const MeetingBoard = () => {
     navigate(`/community/meetings/${meetingId}`);
   };
 
+  const backHandler = () => {
+    navigate(-1); // 이전 페이지로 이동
+  };
+
   return (
     <Container>
       <Header>
-        <Title>맛남 게시판</Title>
+        <Title>
+          <BackButton onClick={backHandler}>
+            <FaArrowLeft />
+          </BackButton>
+          밥팅 게시판
+        </Title>
         <SearchContainer>
           <SearchInput
             type="text"
@@ -110,8 +119,8 @@ const MeetingBoard = () => {
           </ListItem>
         ))}
       </List>
-      <CreateButton onClick={() => navigate("/community/meetings/create")}>
-        맛남 생성하기
+      <CreateButton onClick={() => navigate("/team/creation")}>
+        밥팅 생성하기
       </CreateButton>
     </Container>
   );
@@ -136,13 +145,22 @@ const Title = styled.h1`
   margin-bottom: 10px;
 `;
 
+const BackButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #007bff;
+  cursor: pointer;
+  margin-right: 10px;
+`;
+
 const SearchContainer = styled.div`
   position: relative;
   width: 100%;
 `;
 
 const SearchInput = styled.input`
-  width: 100%;
+  width: 91%;
   padding: 12px 40px 12px 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
