@@ -9,61 +9,63 @@ import { BiMap, BiUserCircle } from "react-icons/bi";
 const MeetingManagement = () => {
   const navigate = useNavigate();
   return (
-    <Container>
-      <Header>모임 관리</Header>
+    <div>
+      <Container>
+        <Header>모임 관리</Header>
 
-      <FilterContainer>
-        <FilterButton active>전체</FilterButton>
-        <FilterButton>맛밤 예정</FilterButton>
-        <FilterButton>맛밤 완료</FilterButton>
-        <FilterButton>내가 만든 맛밤</FilterButton>
-      </FilterContainer>
+        <FilterContainer>
+          <FilterButton active>전체</FilterButton>
+          <FilterButton>맛밤 예정</FilterButton>
+          <FilterButton>맛밤 완료</FilterButton>
+          <FilterButton>내가 만든 맛밤</FilterButton>
+        </FilterContainer>
 
-      <MeetingList>
-        <MeetingItem>
-          <ProfileImage
-            src="https://randomuser.me/api/portraits/men/1.jpg"
-            alt="user"
-          />
-          <MeetingInfo>
-            <MeetingTitle>점심 돈볼 모임</MeetingTitle>
-            <LastMessage>Hey, how's everyone?</LastMessage>
-          </MeetingInfo>
-          <MeetingDetails>
-            <Time>10:01 AM</Time>
-            <Badge>2</Badge>
-          </MeetingDetails>
-        </MeetingItem>
+        <MeetingList>
+          <MeetingItem>
+            <ProfileImage
+              src="https://randomuser.me/api/portraits/men/1.jpg"
+              alt="user"
+            />
+            <MeetingInfo>
+              <MeetingTitle>점심 돈볼 모임</MeetingTitle>
+              <LastMessage>Hey, how's everyone?</LastMessage>
+            </MeetingInfo>
+            <MeetingDetails>
+              <Time>10:01 AM</Time>
+              <Badge>2</Badge>
+            </MeetingDetails>
+          </MeetingItem>
 
-        <MeetingItem>
-          <ProfileImage
-            src="https://randomuser.me/api/portraits/women/2.jpg"
-            alt="user"
-          />
-          <MeetingInfo>
-            <MeetingTitle>아침 국밥 모임</MeetingTitle>
-            <LastMessage>I'm good, thanks for asking!</LastMessage>
-          </MeetingInfo>
-          <MeetingDetails>
-            <Time>10:02 AM</Time>
-            <Badge>2</Badge>
-          </MeetingDetails>
-        </MeetingItem>
+          <MeetingItem>
+            <ProfileImage
+              src="https://randomuser.me/api/portraits/women/2.jpg"
+              alt="user"
+            />
+            <MeetingInfo>
+              <MeetingTitle>아침 국밥 모임</MeetingTitle>
+              <LastMessage>I'm good, thanks for asking!</LastMessage>
+            </MeetingInfo>
+            <MeetingDetails>
+              <Time>10:02 AM</Time>
+              <Badge>2</Badge>
+            </MeetingDetails>
+          </MeetingItem>
 
-        <MeetingItem>
-          <ProfileImage
-            src="https://randomuser.me/api/portraits/men/3.jpg"
-            alt="user"
-          />
-          <MeetingInfo>
-            <MeetingTitle>블랙탭 고양이 모임</MeetingTitle>
-            <LastMessage>Just finished my work.</LastMessage>
-          </MeetingInfo>
-          <MeetingDetails>
-            <Time>10:03 AM</Time>
-          </MeetingDetails>
-        </MeetingItem>
-      </MeetingList>
+          <MeetingItem>
+            <ProfileImage
+              src="https://randomuser.me/api/portraits/men/3.jpg"
+              alt="user"
+            />
+            <MeetingInfo>
+              <MeetingTitle>블랙탭 고양이 모임</MeetingTitle>
+              <LastMessage>Just finished my work.</LastMessage>
+            </MeetingInfo>
+            <MeetingDetails>
+              <Time>10:03 AM</Time>
+            </MeetingDetails>
+          </MeetingItem>
+        </MeetingList>
+      </Container>
 
       {/* 네비게이션 바 */}
       <NavBar>
@@ -75,7 +77,7 @@ const MeetingManagement = () => {
           <BiMap size={20} />
           <NavText>캠퍼스 지도</NavText>
         </NavItem>
-        <NavItem onClick={() => navigate("/meeting")} active>
+        <NavItem onClick={() => navigate("/chat")} active>
           <IoChatbubbleEllipsesOutline size={20} />
           <NavText>채팅</NavText>
         </NavItem>
@@ -84,7 +86,8 @@ const MeetingManagement = () => {
           <NavText>마이페이지</NavText>
         </NavItem>
       </NavBar>
-    </Container>
+    </div>
+
   );
 };
 
@@ -94,9 +97,9 @@ export default MeetingManagement;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // padding: 20px;
-  width: 100%;
+  align-items: center;
+  padding: 20px;
+  // width: 100%;
   // max-width: 400px;
   // margin: 0 auto;
   background-color: #f9fafb;
@@ -189,8 +192,9 @@ const NavBar = styled.div`
   padding: 10px 0;
   background-color: #ffffff;
   border-top: 1px solid #e5e7eb;
-  position: sticky;
+  position: absolute;
   bottom: 0;
+  width: 100%;
 `;
 
 const NavItem = styled.div`
