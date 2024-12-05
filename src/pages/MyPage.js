@@ -58,6 +58,7 @@ const Section = styled.div`
 const SectionTitle = styled.div`
   font-size: 16px;
   font-weight: bold;
+  margin-top: 10px;
   margin-bottom: 10px;
 `;
 
@@ -121,6 +122,7 @@ const MyPage = ({ activeSection }) => {
         <Section>
           <SectionTitle>매너 온도</SectionTitle>
           <SectionItem>{mannerTemp}°C</SectionItem>
+          <img src="/roll.png" style={{ width: "100%" }} />
         </Section>
         <Section>
           <div
@@ -178,7 +180,6 @@ const MyPage = ({ activeSection }) => {
         >
           <p>맛남 성사 상세 내용</p>
         </Modal>
-
       </Container>
       {/* 네비게이션 바 */}
       <NavBar>
@@ -190,7 +191,7 @@ const MyPage = ({ activeSection }) => {
           <BiMap size={20} />
           <NavText>캠퍼스 지도</NavText>
         </NavItem>
-        <NavItem onClick={() => navigate("/chat")} >
+        <NavItem onClick={() => navigate("/chat")}>
           <IoChatbubbleEllipsesOutline size={20} />
           <NavText>채팅</NavText>
         </NavItem>
@@ -200,7 +201,6 @@ const MyPage = ({ activeSection }) => {
         </NavItem>
       </NavBar>
     </div>
-
   );
 };
 
