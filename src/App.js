@@ -43,7 +43,7 @@ function App() {
           <Route path="/user/timetable" element={<TimeTablePage />} />
           <Route path="/user/timetable/edit" element={<EditTimeTablePage />} />
 
-          <Route path="/meeting/*" element={<MeetingManagement />} />
+          <Route path="/chat/*" element={<MeetingManagement />} />
           <Route
             path="/meetupmap"
             element={

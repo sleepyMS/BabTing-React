@@ -73,7 +73,7 @@ const Login = () => {
       ],
     };
     localStorage.setItem("user", JSON.stringify(user));
-    navigate("/meeting");
+    navigate("/chat");
   }
 
   return (

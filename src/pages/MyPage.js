@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../components/Modal";
-
+import { IoHomeOutline, IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { BiMap, BiUserCircle } from "react-icons/bi";
 const Container = styled.div`
   flex: 1;
   padding: 20px;
@@ -67,6 +68,28 @@ const SectionItem = styled.div`
     text-decoration: underline;
   }
 `;
+const NavBar = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+
+const NavItem = styled.div`
+  text-align: center;
+  color: ${(props) => (props.active ? "#4f46e5" : "#6b7280")};
+  font-size: 12px;
+  cursor: pointer;
+`;
+
+const NavText = styled.div`
+  margin-top: 5px;
+`;
 
 const MyPage = ({ activeSection }) => {
   const [mannerTemp, setMannerTemp] = useState(37.3);
@@ -85,76 +108,99 @@ const MyPage = ({ activeSection }) => {
   }, []);
 
   return (
-    <Container>
-      <ProfileHeader>
-        <ProfileImage />
-        <ProfileInfo>
-          <ProfileName>먹보돼지</ProfileName>
-          <ProfileDetails>강남대학교 | ICT융합공학부 | 22학번</ProfileDetails>
-          <Button>매너 칭찬하기</Button>
-        </ProfileInfo>
-      </ProfileHeader>
-      <Section>
-        <SectionTitle>매너 온도</SectionTitle>
-        <SectionItem>{mannerTemp}°C</SectionItem>
-      </Section>
-      <Section>
-        <div
-          style={{
-            width: "100%",
-            height: "2px",
-            background: "#ccc",
-            borderRadius: "1px",
-          }}
-        />
-        <SectionTitle>활동 배지</SectionTitle>
-        <SectionItem onClick={() => setBadgeModalOpen(true)}>
-          총 13개
-        </SectionItem>
-      </Section>
-      <Section>
-        <div
-          style={{
-            width: "100%",
-            height: "2px",
-            background: "#ccc",
-            borderRadius: "1px",
-          }}
-        />
-        <SectionTitle>맛남 성사</SectionTitle>
-        <SectionItem onClick={() => setMeetingModalOpen(true)}>
-          43번
-        </SectionItem>
-      </Section>
-      <Section>
-        <div
-          style={{
-            width: "100%",
-            height: "2px",
-            background: "#ccc",
-            borderRadius: "1px",
-          }}
-        />
-        <SectionTitle>시간표</SectionTitle>
-        <SectionItem onClick={() => navigate("/user/timetable")}>
-          시간표 보기
-        </SectionItem>
-      </Section>
-      <Modal
-        isOpen={isBadgeModalOpen}
-        onClose={() => setBadgeModalOpen(false)}
-        title="활동 배지 상세보기"
-      >
-        <p>배지 상세 내용</p>
-      </Modal>
-      <Modal
-        isOpen={isMeetingModalOpen}
-        onClose={() => setMeetingModalOpen(false)}
-        title="맛남 성사 상세보기"
-      >
-        <p>맛남 성사 상세 내용</p>
-      </Modal>
-    </Container>
+    <div>
+      <Container>
+        <ProfileHeader>
+          <ProfileImage />
+          <ProfileInfo>
+            <ProfileName>먹보돼지</ProfileName>
+            <ProfileDetails>강남대학교 | ICT융합공학부 | 22학번</ProfileDetails>
+            <Button>매너 칭찬하기</Button>
+          </ProfileInfo>
+        </ProfileHeader>
+        <Section>
+          <SectionTitle>매너 온도</SectionTitle>
+          <SectionItem>{mannerTemp}°C</SectionItem>
+        </Section>
+        <Section>
+          <div
+            style={{
+              width: "100%",
+              height: "2px",
+              background: "#ccc",
+              borderRadius: "1px",
+            }}
+          />
+          <SectionTitle>활동 배지</SectionTitle>
+          <SectionItem onClick={() => setBadgeModalOpen(true)}>
+            총 13개
+          </SectionItem>
+        </Section>
+        <Section>
+          <div
+            style={{
+              width: "100%",
+              height: "2px",
+              background: "#ccc",
+              borderRadius: "1px",
+            }}
+          />
+          <SectionTitle>맛남 성사</SectionTitle>
+          <SectionItem onClick={() => setMeetingModalOpen(true)}>
+            43번
+          </SectionItem>
+        </Section>
+        <Section>
+          <div
+            style={{
+              width: "100%",
+              height: "2px",
+              background: "#ccc",
+              borderRadius: "1px",
+            }}
+          />
+          <SectionTitle>시간표</SectionTitle>
+          <SectionItem onClick={() => navigate("/user/timetable")}>
+            시간표 보기
+          </SectionItem>
+        </Section>
+        <Modal
+          isOpen={isBadgeModalOpen}
+          onClose={() => setBadgeModalOpen(false)}
+          title="활동 배지 상세보기"
+        >
+          <p>배지 상세 내용</p>
+        </Modal>
+        <Modal
+          isOpen={isMeetingModalOpen}
+          onClose={() => setMeetingModalOpen(false)}
+          title="맛남 성사 상세보기"
+        >
+          <p>맛남 성사 상세 내용</p>
+        </Modal>
+
+      </Container>
+      {/* 네비게이션 바 */}
+      <NavBar>
+        <NavItem onClick={() => navigate("/community/main")}>
+          <IoHomeOutline size={20} />
+          <NavText>홈</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/meetupmap")}>
+          <BiMap size={20} />
+          <NavText>캠퍼스 지도</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/chat")} >
+          <IoChatbubbleEllipsesOutline size={20} />
+          <NavText>채팅</NavText>
+        </NavItem>
+        <NavItem onClick={() => navigate("/mypage")} active>
+          <BiUserCircle size={20} />
+          <NavText>마이페이지</NavText>
+        </NavItem>
+      </NavBar>
+    </div>
+
   );
 };
 
