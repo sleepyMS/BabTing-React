@@ -91,9 +91,11 @@ const TeamCreation = () => {
               </Option>
             ))}
           </Options>
-          <Button onClick={nextStep} disabled={!formData.activity}>
-            다음
-          </Button>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button onClick={nextStep} disabled={!formData.activity}>
+              다음
+            </Button>
+          </div>
         </FadeIn>
       )}
       {step === 2 && (
@@ -332,7 +334,7 @@ const Calendar = styled.div`
   margin: 20px 0;
 
   input {
-    width: 100%;
+    width: 93%;
     padding: 15px;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
@@ -346,7 +348,7 @@ const SearchContainer = styled.div`
 `;
 
 const SearchInput = styled.input`
-  width: 100%;
+  width: 85%;
   padding: 15px 50px 15px 20px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;

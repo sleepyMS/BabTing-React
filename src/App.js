@@ -13,9 +13,12 @@ import ChatRoom from "./pages/ChatRoom";
 import EditTimeTablePage from "./pages/EditTimeTablePage";
 import TimeTablePage from "./pages/TimeTablePage";
 import CommunityMain from "./pages/community/CommunityMain";
+import MeetingBoard from "./pages/community/MeetingBoard";
 import Reviews from "./pages/community/Reviews";
 import Board from "./pages/community/Board";
 import ReviewWrite from "./pages/community/ReviewWrite";
+import MyPageInfo from "./pages/MyPageInfo";
+import MyPage from "./pages/MyPage";
 
 function App() {
   const handleSuccess = () => {
@@ -36,7 +39,7 @@ function App() {
           />
           <Route path="/login/" element={<Login />} />
           <Route path="/signup/*" element={<SignUp />} />
-          
+
           <Route path="/user/timetable" element={<TimeTablePage />} />
           <Route path="/user/timetable/edit" element={<EditTimeTablePage />} />
 
@@ -47,12 +50,15 @@ function App() {
               <MeetupMap events={events} currentPosition={currentPosition} />
             }
           />
-          <Route path="/TeamCreation" element={<TeamCreation />} />
+          <Route path="/team/creation" element={<TeamCreation />} />
           <Route path="/chatroom" element={<ChatRoom />} />
           <Route path="/community/main" element={<CommunityMain />} />
+          <Route path="/community/meetings" element={<MeetingBoard />} />
           <Route path="/community/board" element={<Board />} />
           <Route path="/community/reviews" element={<Reviews />} />
           <Route path="/community/reviewWrite" element={<ReviewWrite />} />
+          <Route path="/mypage/info" element={<MyPageInfo />} />
+          <Route path="/mypage" element={<MyPage />} />
 
           {/* <Route path="/search/detail/*" element={<SearchDetail />} />
           <Route path="/replay/detail/*" element={<ReplayDetail />} /> */}
