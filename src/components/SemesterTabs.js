@@ -10,11 +10,11 @@ import styled from "styled-components";
  * @returns {JSX.Element} SemesterTabs 컴포넌트
  */
 const SemesterTabs = ({ onChange }) => {
-    const navigate = useNavigate();
-    const tabs = [
-     { label: "2024년 2학기", value: "second-semester" },
-     { label: "2024년 1학기", value: "first-semester" },
-   ];
+  const navigate = useNavigate();
+  const tabs = [
+    { label: "2024년 2학기", value: "second-semester" },
+    { label: "2024년 1학기", value: "first-semester" },
+  ];
   const [activeTab, setActiveTab] = useState(tabs[0].value);
   const handleTabClick = (value) => {
     setActiveTab(value);
@@ -23,30 +23,30 @@ const SemesterTabs = ({ onChange }) => {
   const handleEditClick = () => {
     navigate("/user/timetable/edit");
   };
-  return (<>
-  <IconContainer>
+  return (
+    <>
       <IconContainer>
-        <EditIcon>←</EditIcon>
-        <IconContainerinContainer>
-        <EditIcon onClick={handleEditClick}>✏️</EditIcon>
-        <AddIcon>➕</AddIcon>
-        </IconContainerinContainer>
+        <IconContainer>
+          <EditIcon onClick={() => navigate("/community/main")}>←</EditIcon>
+          <IconContainerinContainer>
+            <EditIcon onClick={handleEditClick}>✏️</EditIcon>
+            <AddIcon>➕</AddIcon>
+          </IconContainerinContainer>
+        </IconContainer>
       </IconContainer>
-    </IconContainer>
-    <TabsContainer>
-      {tabs.map((tab) => (
-        <TabButton
-          key={tab.value}
-          isActive={activeTab === tab.value}
-          onClick={() => handleTabClick(tab.value)}
-        >
-          {tab.label}
-          {activeTab === tab.value && <ActiveLine />}
-        </TabButton>
-      ))}
-    </TabsContainer>
-  </>
-    
+      <TabsContainer>
+        {tabs.map((tab) => (
+          <TabButton
+            key={tab.value}
+            isActive={activeTab === tab.value}
+            onClick={() => handleTabClick(tab.value)}
+          >
+            {tab.label}
+            {activeTab === tab.value && <ActiveLine />}
+          </TabButton>
+        ))}
+      </TabsContainer>
+    </>
   );
 };
 
@@ -88,7 +88,7 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width:100%;
+  width: 100%;
   gap: 15px;
 `;
 const IconContainerinContainer = styled.div`
