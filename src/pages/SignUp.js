@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
 
 // SignUp 컴포넌트
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [isChecked, setIsChecked] = useState(false);
 
   // 약관 동의 체크박스 상태 변경 함수
@@ -27,7 +30,7 @@ const SignUp = () => {
         </CheckboxLabel>
       </CheckboxContainer>
 
-      <SignUpButton>Sign up</SignUpButton>
+      <SignUpButton onClick={() => navigate("/univform")}>Next</SignUpButton>
 
     </Container>
   );

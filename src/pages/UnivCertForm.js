@@ -97,7 +97,7 @@ export default UnivCertForm;
 const Container = styled.div`
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
   padding: 20px;
   background: #f9f9f9;
