@@ -18,7 +18,7 @@ const SemesterTabs = ({ onChange }) => {
   const [activeTab, setActiveTab] = useState(tabs[0].value);
   const handleTabClick = (value) => {
     setActiveTab(value);
-    // onChange(value);
+    // onChange(value); test
   };
   const handleEditClick = () => {
     navigate("/user/timetable/edit");
