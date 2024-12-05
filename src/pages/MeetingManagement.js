@@ -9,7 +9,7 @@ import { BiMap, BiUserCircle } from "react-icons/bi";
 const MeetingManagement = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <div>
       <Container>
         <Header>모임 관리</Header>
 
@@ -86,7 +86,7 @@ const MeetingManagement = () => {
           <NavText>마이페이지</NavText>
         </NavItem>
       </NavBar>
-    </>
+    </div>
 
   );
 };
@@ -97,9 +97,9 @@ export default MeetingManagement;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // padding: 20px;
-  width: 100%;
+  align-items: center;
+  padding: 20px;
+  // width: 100%;
   // max-width: 400px;
   // margin: 0 auto;
   background-color: #f9fafb;
