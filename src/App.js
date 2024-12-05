@@ -67,8 +67,8 @@ function App() {
           <Route path="/community/board" element={<Board />} />
           <Route path="/community/reviews" element={<Reviews />} />
           <Route path="/community/reviewWrite" element={<ReviewWrite />} />
-          <Route path="/mypage/info" element={<MyPageInfo />} />
-          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypage/info" element={<MyPage />} />
+          <Route path="/mypage" element={<MyPageInfo />} />
 
           {/* <Route path="/search/detail/*" element={<SearchDetail />} />
           <Route path="/replay/detail/*" element={<ReplayDetail />} /> */}
