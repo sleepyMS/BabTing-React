@@ -70,7 +70,9 @@ const CommunityMain = () => {
           <SectionTitle onClick={() => navigate("/community/meetings")}>
             맛남 게시판
           </SectionTitle>
-          <Icon>★</Icon>
+          <div onClick={() => navigate("/community/meetings/magic")}>
+            <Icon>★</Icon>
+          </div>
         </SectionHeader>
         <List>
           {meetings.slice(0, 5).map((meeting) => (

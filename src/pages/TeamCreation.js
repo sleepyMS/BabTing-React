@@ -60,7 +60,7 @@ const TeamCreation = () => {
   const navigate = useNavigate();
 
   const handleCreateMeeting = () => {
-    // 필요한 경우 서버와 통신하여 맛남을 생성하는 로직을 추가할 수 있습니다.
+    // 필요한 경우 서버와 통신하여 밥팅을 생성하는 로직을 추가할 수 있습니다.
     // 여기서는 단순히 채팅방으로 이동합니다.
     navigate("/chatroom", { state: { formData } });
   };
@@ -77,7 +77,7 @@ const TeamCreation = () => {
       </ProgressBar>
       {step === 1 && (
         <FadeIn>
-          <Header>맛남 만들기</Header>
+          <Header>밥팅 만들기</Header>
           <Title>함께 무엇을 할까요?</Title>
           <Options>
             {activities.map((activity, index) => (
@@ -100,7 +100,7 @@ const TeamCreation = () => {
       )}
       {step === 2 && (
         <FadeIn>
-          <Header>맛남 만들기</Header>
+          <Header>밥팅 만들기</Header>
           <Title>언제가 편하세요?</Title>
           <Calendar>
             <input
@@ -118,7 +118,7 @@ const TeamCreation = () => {
       )}
       {step === 3 && (
         <FadeIn>
-          <Header>맛남 만들기</Header>
+          <Header>밥팅 만들기</Header>
           <Title>어디가 좋을까요?</Title>
           <SearchContainer>
             <SearchInput
@@ -151,7 +151,7 @@ const TeamCreation = () => {
       )}
       {step === 4 && (
         <FadeIn>
-          <Header>맛남 만들기</Header>
+          <Header>밥팅 만들기</Header>
           <Title>어떻게 모이는게 편하세요?</Title>
           <Options>
             <Option
@@ -183,7 +183,7 @@ const TeamCreation = () => {
       )}
       {step === 5 && (
         <FadeIn>
-          <Header>맛남 정보 확인</Header>
+          <Header>밥팅 정보 확인</Header>
           <Summary>
             <SummaryItem>
               <Label>카테고리</Label>
@@ -204,7 +204,7 @@ const TeamCreation = () => {
           </Summary>
           <ButtonGroup>
             <BackButton onClick={prevStep}>이전</BackButton>
-            <Button onClick={handleCreateMeeting}>맛남 만들기</Button>
+            <Button onClick={handleCreateMeeting}>밥팅 만들기</Button>
           </ButtonGroup>
         </FadeIn>
       )}
