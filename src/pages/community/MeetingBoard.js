@@ -70,7 +70,7 @@ const MeetingBoard = () => {
         <SearchContainer>
           <SearchInput
             type="text"
-            placeholder="맛남을 검색하세요"
+            placeholder="밥팅을 검색하세요"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

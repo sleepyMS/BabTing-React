@@ -64,11 +64,11 @@ const CommunityMain = () => {
     <Container>
       <Header>커뮤니티</Header>
 
-      {/* 맛남 게시판 섹션 */}
+      {/* 밥팅 게시판 섹션 */}
       <Section>
         <SectionHeader>
           <SectionTitle onClick={() => navigate("/community/meetings")}>
-            맛남 게시판
+            밥팅 게시판
           </SectionTitle>
           <div onClick={() => navigate("/community/meetings/magic")}>
             <Icon>★</Icon>
@@ -171,6 +171,7 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #f9fafb;
   min-height: 100vh;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 `;
 
 const Header = styled.div`
